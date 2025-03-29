@@ -1,0 +1,16 @@
+python-dotenv
+grop
+AppOpener
+pywhatkit
+bs4
+pillow
+rich
+requests
+cohere
+googlesearch-python
+selenium
+mtranslate
+pyygame
+edge-tts
+pyQt5
+webdriver-manager

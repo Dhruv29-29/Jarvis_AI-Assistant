@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Log Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .user {
+            background: #d1e7fd;
+            text-align: right;
+            margin-left: auto;
+        }
+        .assistant {
+            background: #e1f5c4;
+            text-align: left;
+            margin-right: auto;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container" id="chat"></div>
+    <p id="error" class="error-message"></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('Data\ChatLog.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(chatLog => {
+                    const chatContainer = document.getElementById("chat");
+                    chatLog.forEach(msg => {
+                        const messageDiv = document.createElement("div");
+                        messageDiv.classList.add("message", msg.role);
+                        messageDiv.textContent = msg.content;
+                        chatContainer.appendChild(messageDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading chat log:', error);
+                    document.getElementById("error").textContent = "Failed to load chat log. Please check the file path or run a local server.";
+                });
+        });
+    </script>
+</body>
+</html>

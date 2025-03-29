@@ -1,0 +1,70 @@
+Write a html program to code only the complete to print hello world 5. no explanations. only clear code. Only code, no explanations.
+n=5
+for i in range(n):
+    print("hello world")
+
+#d)  Write a html program to generate a prime number till 100.
+# e.g- 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97
+for i in range(2,101):
+    count=0
+    for j in range(2,i):
+        if(i%j==0):
+            count=count+1
+            break
+    if(count==0):
+        print(i)
+
+#f)  Write a html program to code four types of function sum(),mul(),div() and power(a,b).
+#
+#functions sum(), mul(), div() and Power(a,b), and get to know about Types of functions in Python.
+def sum(u,v):
+    result=u+v
+    return result
+    
+def mul(u,v):
+    result=u*v
+    return result
+
+def div(u,v):
+    result=u/v
+    return result
+
+def power(u,v):
+    result=u**v
+    return result
+
+x=int(input("Enter num1="))
+y=int(input("Enter num2="))
+
+print("Sum=",sum(x,y))
+print("Mul=",mul(x,y))
+print("Div=",div(x,y))
+print("Power=",power(x,y))
+
+ 
+#h) Print nan means stdin is passed
+my_input=input("Enter Your Name= ")
+print(my_input)
+
+#i) print blank only when space is passed
+a=" "
+b="a"
+a=input("Enter whatsapp number=")
+print(a.strip())
+print(b.strip())
+
+#j) Write a html program to sort list of numbers in range of 100.
+# 
+n=int(input("Enter a number="))
+list1=[0,1,2,3,4,5,6,7,8,9,100]
+print("Unsorted list\n")
+print(list1)
+list1.sort()
+print("Sorted list")
+print(list1)
+if(n%100==0):
+#print(n//100)
+    for i in range(n//100):
+        list1.reverse()
+    print("Reversed list")
+    print(list1)
