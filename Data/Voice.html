@@ -810,7 +810,7 @@
 
         function startRecognition() {
             recognition = new webkitSpeechRecognition() || new SpeechRecogniti5on();
-            recognition.lang = 'en';
+            recognition.lang = 'None';
             recognition.continuous = true;
 
             recognition.onresult = function(event) {
